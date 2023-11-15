@@ -7,6 +7,7 @@ import '../App.css'
 import  Footer  from '../features/Footer';
 import useFilteredAndSortedCountries from '../hook/useFilteredAndSortedCountries';
 import Paginate from './pagination';
+import { useTheme } from '../context/ThemeContext';
 
 
 type CountriesProps = { 
@@ -20,7 +21,7 @@ const Countries = (props: CountriesProps) => {
   const [sortBy, setSortBy] = useState('A');
   //For pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [countriesPerPage] = useState(6);
+  const [countriesPerPage] = useState(3);
 
   //Get Current Countries
   const IndexOfLastCountry = currentPage * countriesPerPage;
@@ -44,10 +45,12 @@ const Countries = (props: CountriesProps) => {
     IndexOfLastCountry
   )
 
+    const { theme } = useTheme();
+
   return (
-    <div className='countries'>
+    <div className={theme === 'light'? 'dark-countries' : 'light-countries'}>
       <NavBar />
-      <h1>Countries App</h1>
+      <h2>Countries App</h2>
       <input 
         type='text' 
         placeholder='Search for a country'
@@ -61,19 +64,21 @@ const Countries = (props: CountriesProps) => {
           <option value='D'> Sort by Ascending Population </option>
           <option value='E'> Sort by Descending Population </option>
         </select>
-      <Row gutter={[16, 16]} className='countries_row'>
-        {!searchInput
-          ? 
-          sortedAndPaginatedCountries.map((country) => (
-            <Country country={country} key={country.name.common}/>
-            ))
-            :
-              filteredAndSortedCountries.map((country) => (
-                <Country key={country.name.common} country={country} />
-             ))
-        }
-      </Row>
-      <Paginate 
+      <div className='countries'>
+        <Row gutter={[15, 15]} className='countries_row'>
+          {!searchInput
+            ? 
+            sortedAndPaginatedCountries.map((country) => (
+              <Country country={country} key={country.name.common}/>
+              ))
+              :
+                filteredAndSortedCountries.map((country) => (
+                  <Country key={country.name.common} country={country} />
+              ))
+          }
+        </Row>
+      </div>
+      <Paginate
         countriesPerPage={countriesPerPage} 
         totalCountries={countries.length}
         currentPage={currentPage} 
