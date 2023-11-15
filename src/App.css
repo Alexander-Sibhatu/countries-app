@@ -14,8 +14,9 @@ body {
   height: 100%;
 }
 
-.countries > .countries_row {
+.countries  {
   flex-wrap: wrap;
+  margin: 0 2rem .8rem 0;
 }
 
 .countries > h1 {
@@ -50,8 +51,10 @@ input {
 }
 
 .country__details > p {
-  font-weight: bold;
-  color: rgb(69, 55, 55)
+  font-weight: 700;
+  color: rgb(69, 55, 55);
+  margin: 0;
+  padding: 0;
 }
 
 .favourite {
@@ -62,42 +65,14 @@ input {
   border-style: none;
   border-radius: 4px;
   font-weight: bold;
+  margin: .5rem;
 }
 
-
-/* Light Theme */
-.light-theme {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-/* Dark Theme */
-.dark-theme {
-  background-color: #333333;
-  color: #ffffff;
-}
-
-#nav {
-  background-color:  rgb(88, 88, 255);
-  width: 100vw;
-  box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
-  margin: 0;
-}
-
-#nav ul {
+h2 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  list-style-type: none;
-  height: 7vh;
-  width: 100vw;
-  padding: 0 2rem;
-  color: white;
-  font-weight: 400;
-  font-size: 1.4rem;
-}
-h1 {
-  margin:0;
+  font-weight: 600;
 }
 
 .country__name {
@@ -105,23 +80,8 @@ h1 {
   border-style: none;
   font-size: 1rem;
   font-weight: 700;
-  border-radius: .5rem;
   background-color: rgb(225, 225, 225);
   margin-right: 1rem;
-}
-
-.footer {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  height: 5vh;
-  color: white;
-  background-color:  rgb(88, 88, 255);
-  width: 100vw;
-  box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
-  margin: 0;
-  font-weight: 400;
-  font-size: 1rem;
 }
 
 .pagination-container {
@@ -129,4 +89,109 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+.country > img {
+  margin: 5px 0 0 30px;
+  width: 75%;
+  height: 55%;
+}
+.country {
+  width: 7%;
+  height: 16%;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 2rem;
+}
 
+.country:hover {
+  transform:scale(1.1)
+}
+/* The code below is a custome css style to enable
+theme toggling */
+
+/* Example styles for the navbar */
+.light-navbar {
+  background-color: #5c687d;
+  color: #fff;
+  box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
+}
+
+.light-navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  height: 6vh;
+  padding: 0 3vw;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.country {
+  justify-content: center;
+  align-items: center;
+  background-color: #e2e2e2;
+  width: 30vw;
+  height: 43vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border: 2px;
+  border-radius: 7px;
+}
+
+/* Example styles for the footer */
+.light-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5c687d;
+  color: #fff;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+
+.light-countries {
+  height: 100vh;
+  width: 100vw;
+  color: #293241;
+  background-color:#d8dbe2; 
+}
+
+
+/* Dark Theme */
+.dark-navbar {
+  background-color: #3d405b;
+  color: #fff;
+  box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  height: 6vh;
+  padding: 0 3vw;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+/* Example styles for the footer */
+.dark-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d405b;
+  color: #fff;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+
+.dark-countries {
+  height: 100vh;
+  width: 100vw;
+  color: #d8dbe2;
+  background-color: #293241;
+}
