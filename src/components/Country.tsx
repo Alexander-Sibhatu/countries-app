@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CountryT } from '../type/type'
 import { Col, Divider } from 'antd';
 
+
 type Props = {
     country: CountryT
 }
