@@ -1,10 +1,14 @@
 import React from 'react'
+import { useTheme  } from '../context/ThemeContext';
+import '../App.css'
 
-type Props = {}
 
-const Footer = (props: Props) => {
+const Footer = () => {
+  const { theme } = useTheme();
   return (
-    <div className='footer'>Copyright by Alexander Sibhatu @2023</div>
+    <div className={theme === 'light'? 'dark-footer' : 'light-footer'}>
+      Copyright by Alexander Sibhatu @2023
+    </div>
   )
 }
 
