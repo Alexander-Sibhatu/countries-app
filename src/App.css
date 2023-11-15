@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(225, 225, 225);
+  height: 100%;
 }
 
 .countries > .countries_row {
@@ -110,7 +111,22 @@ h1 {
 }
 
 .footer {
-  width: 5%;
-  background-color: rgb(135, 152, 135);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
   color: white;
+  background-color:  rgb(88, 88, 255);
+  width: 100vw;
+  box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
 }
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
