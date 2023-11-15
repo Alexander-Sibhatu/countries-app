@@ -1,6 +1,7 @@
 import "./App.css";
 import Countries from "./components/Countries";
 import useFetch from './components/useFetch';
+import { ThemeProvider } from "./context/ThemeContext";
 
 const App = () => {
 
@@ -10,10 +11,12 @@ const App = () => {
 
 
   return (
-  <div  className="App">
-    {loading && <h1>Loading...</h1>}
-    {error? <h1>{error}</h1>: <Countries countries={countries}/>}
-  </div>
+    <ThemeProvider>
+      <div  className="App">
+        {loading && <h1>Loading...</h1>}
+        {error? <h1>{error}</h1>: <Countries countries={countries}/>}
+      </div>
+    </ThemeProvider>
   );
 };
 
