@@ -4,13 +4,13 @@
   padding: 0;
 }
 
-body {
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
-  background-color: rgb(225, 225, 225);
+  background-color:#d8dbe2;
   height: 100%;
 }
 
@@ -73,6 +73,7 @@ h2 {
   justify-content: center;
   align-items: center;
   font-weight: 600;
+  margin-top: 2.1rem 
 }
 
 .country__name {
@@ -109,9 +110,16 @@ theme toggling */
 
 /* Example styles for the navbar */
 .light-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 95vh;
+  z-index: 100;
   background-color: #5c687d;
   color: #fff;
   box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
+  height: 6vh;
 }
 
 .light-navbar ul {
@@ -119,7 +127,6 @@ theme toggling */
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
-  height: 6vh;
   padding: 0 3vw;
   font-weight: 600;
   font-size: 1.2rem;
@@ -151,18 +158,25 @@ theme toggling */
 
 
 .light-countries {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
-  color: #293241;
   background-color:#d8dbe2; 
 }
 
 
 /* Dark Theme */
 .dark-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 95vh;
+  z-index: 100;
   background-color: #3d405b;
   color: #fff;
   box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
+  height: 6vh;
+  margin-bottom: 3rem;
 }
 
 .dark-navbar ul {
@@ -190,7 +204,7 @@ theme toggling */
 
 
 .dark-countries {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   color: #d8dbe2;
   background-color: #293241;
