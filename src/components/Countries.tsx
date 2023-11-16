@@ -21,7 +21,7 @@ const Countries = (props: CountriesProps) => {
   const [sortBy, setSortBy] = useState('A');
   //For pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [countriesPerPage] = useState(6);
+  const [countriesPerPage] = useState(3);
 
   //Get Current Countries
   const IndexOfLastCountry = currentPage * countriesPerPage;
