@@ -10,7 +10,8 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  background-color:#d8dbe2;
+  /* background-color:#d8dbe2;*/
+  background-color: red;
   height: 100%;
 }
 
@@ -105,6 +106,10 @@ h2 {
 .country:hover {
   transform:scale(1.1)
 }
+
+.nav-link {
+  color: white;
+}
 /* The code below is a custome css style to enable
 theme toggling */
 
@@ -173,7 +178,6 @@ theme toggling */
   bottom: 97vh;
   z-index: 100;
   background-color: #3d405b;
-  color: #fff;
   box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
   height: 6vh;
   margin-bottom: 3rem;
