@@ -14,28 +14,56 @@
   height: 100%;
 }
 
-.countries  {
-  flex-wrap: wrap;
-  margin: 0 2rem .8rem 0;
+.fav {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+.fav-heading {
+  margin-top: 2rem;
+}
+.home {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
 }
 
-.countries > h1 {
+
+.countries_row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0 0 0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 -15px;
+  flex-grow: 1;
 }
 
+.country-card {
+  background-color: rgb(192, 21, 21);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+  width: 10%;
+  height: auto;
+}
+
+.bars {
+  display: flex;
+}
 input {
   border-style: none;
   outline: none;
   border-radius: 1.25rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 1rem 5% 0 5%;
-  padding-left: 1.5rem;
+  margin: 1rem 5% 1rem 5%;
+  padding-left: 1rem;
   width: 90%;
-  height: 2.5rem;
-  background-color: rgb(243, 243, 243);
+  height: 1.8rem; /* Reduced height */
+  font-size: 0.9rem; /* Reduced font size */
+  background-color: rgb(243, 243, 243)
 }
 
 #sort_By {
@@ -43,18 +71,26 @@ input {
   outline: none;
   border-radius: 1.25rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 0.4% 5% 2% 5%;
-  padding-left: 1.5rem;
-  width: 30%;
-  height: 2.5rem;
+  margin: 1rem 5% 1rem 5%;
+  padding-left: 1rem;
+  width: 40%; /* Adjusted width to be responsive */
+  height: 1.8rem; /* Reduced height */
+  font-size: 0.8rem; /* Reduced font size */
   background-color: rgb(243, 243, 243);
 }
 
 .country__details > p {
-  font-weight: 700;
+  font-weight: 400;
   color: rgb(69, 55, 55);
-  margin: 0;
+  margin: 5px 0 0 10px;
   padding: 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+.country-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .favourite {
@@ -68,7 +104,7 @@ input {
   margin: .5rem;
 }
 
-h2 {
+h3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +116,7 @@ h2 {
   color:rgb(41, 41, 54);
   border-style: none;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 550;
   background-color: rgb(225, 225, 225);
   margin-right: 1rem;
 }
@@ -92,18 +128,30 @@ h2 {
 }
 .country > img {
   margin: 5px 0 0 30px;
-  width: 75%;
-  height: 55%;
+  object-fit: cover; /* Maintain the aspect ratio */
+  width: 50%; /* Use the full width of the container */
+  height: 25%; /* Limit the height of the flag */
+  object-fit: cover; /* Keep aspect ratio and crop excess */
+  margin-bottom: 10px;
 }
+.country-flag {
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
 .country {
   width: 7%;
   height: 16%;
   transition: transform 0.3s ease-in-out;
   margin-bottom: 2rem;
+  
 }
 
 .country:hover {
-  transform:scale(1.1)
+  transform: scale(1.1);
+  z-index: 1; /* Make sure the hovered element is on top */
 }
 
 .nav-link {
@@ -140,12 +188,13 @@ theme toggling */
   justify-content: center;
   align-items: center;
   background-color: #e2e2e2;
-  width: 30vw;
-  height: 43vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;  /* Let the column take up 100% of its parent */
+  height: auto;  /* Let the height adjust dynamically */
   padding: 10px;
-  border: 2px;
+  border: 2px solid #ccc;
   border-radius: 7px;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 2rem;
 }
 
 /* Example styles for the footer */
