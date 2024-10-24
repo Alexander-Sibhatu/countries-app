@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTheme  } from '../context/ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import '../App.css'
 
@@ -12,16 +13,12 @@ const NavBar = (props: Props) => {
   return (
     <nav className={ theme === 'light'? 'dark-navbar' : "light-navbar" }>
       <ul>
+        <li> <NavLink to='/' className='nav-link'> Home </NavLink> </li>
+        <li> <NavLink to='/favourites' className='nav-link'> Favourites </NavLink> </li>
         <li>
-          Home
-        </li>
-        <li>
-          Favourites
-        </li>
-        <li>
-        <FontAwesomeIcon 
+          <FontAwesomeIcon 
             className='themeIcon'
-            icon={theme === 'light'? faMoon : faSun} 
+            icon={theme === 'light'? faSun : faMoon} 
             onClick={toggleTheme}
           />
         </li>

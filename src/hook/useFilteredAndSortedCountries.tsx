@@ -28,7 +28,6 @@ const useFilteredAndSortedCountries = ({countries, searchInput, sortBy}: Countri
             D: (a, b) => a.population - b.population,
             E: (a, b) => b.population - a.population,
           };
-      console.log(sortBy)
           const sortFunction = sortFunctionMap[sortBy];
           
           if (sortFunction) {

@@ -1,25 +1,17 @@
-import "./App.css";
-import Countries from "./components/Countries";
-import useFetch from './components/useFetch';
-import { ThemeProvider } from "./context/ThemeContext";
+import React from 'react'
+import Index from "./routes";
+import { Provider } from 'react-redux';
+import store from './app/store';
 
 
 const App = () => {
 
-  const url = "https://restcountries.com/v3.1/all";
-
-  const {countries, loading, error } = useFetch(url);
-
-
   return (
-    <ThemeProvider>
-      <div  className='App'>
-        {loading && <h1>Loading...</h1>}
-        {error? <h1>{error}</h1>: <Countries countries={countries}/>}
-      </div>
-    </ThemeProvider>
-  );
-};
+    <Provider store={store}>
+      <Index />
+    </Provider>
+      
+  )
+}
 
-
-export default App;
+export default App

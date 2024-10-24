@@ -15,3 +15,9 @@ export type CountryT = {
 }
 
 export type CountriesT = CountryT[]
+
+export interface RootState {
+    favourites: {
+      favouriteCountries: CountriesT; // Assuming favouriteCountries is of type CountriesT
+    };
+  }

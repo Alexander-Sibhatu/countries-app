@@ -2,9 +2,7 @@ import React, { useState} from 'react'
 import Country from './Country';
 import { CountriesT } from '../type/type';
 import { Row } from 'antd'
-import NavBar from '../features/NavBar';
 import '../App.css'
-import  Footer  from '../features/Footer';
 import useFilteredAndSortedCountries from '../hook/useFilteredAndSortedCountries';
 import Paginate from './pagination';
 import { useTheme } from '../context/ThemeContext';
@@ -21,7 +19,7 @@ const Countries = (props: CountriesProps) => {
   const [sortBy, setSortBy] = useState('A');
   //For pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [countriesPerPage] = useState(3);
+  const [countriesPerPage] = useState(4);
 
   //Get Current Countries
   const IndexOfLastCountry = currentPage * countriesPerPage;
@@ -49,21 +47,22 @@ const Countries = (props: CountriesProps) => {
 
   return (
     <div className={theme === 'light'? 'dark-countries' : 'light-countries'}>
-      <NavBar />
-      <h2>Countries App</h2>
-      <input 
-        type='text' 
-        placeholder='Search for a country'
-        value={searchInput} 
-        onChange={ handleSearchInput }>
-      </input>
+      <h3>Countries App</h3>
+      <div className='bars'>
+        <input 
+          type='text' 
+          placeholder='Search for a country'
+          value={searchInput} 
+          onChange={ handleSearchInput }>
+        </input>
         <select name="sortBy" id="sort_By" onChange={handleDropDown} value={sortBy}>
-          <option value='A'> Sort by </option>
-          <option value='B'> Sort A-Z </option>
-          <option value='C'> Sort Z-A </option>
-          <option value='D'> Sort by Ascending Population </option>
-          <option value='E'> Sort by Descending Population </option>
+            <option value='A'> Sort by </option>
+            <option value='B'> Sort A-Z </option>
+            <option value='C'> Sort Z-A </option>
+            <option value='D'> Sort by Ascending Population </option>
+            <option value='E'> Sort by Descending Population </option>
         </select>
+      </div>
       <div className='countries'>
         <Row gutter={[15, 15]} className='countries_row'>
           {!searchInput
@@ -84,7 +83,6 @@ const Countries = (props: CountriesProps) => {
         currentPage={currentPage} 
         paginate={paginate}
       />
-      <Footer />
     </div>
     
   )
