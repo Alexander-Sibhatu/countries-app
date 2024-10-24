@@ -15,7 +15,7 @@ const Paginate = ({ countriesPerPage, totalCountries, currentPage, paginate }: C
    }
 
    const renderPageNumbers = () => {
-    const visiblePages = 7; //Adjust as needed
+    const visiblePages = 5; //Adjust as needed
     const halfVisible = Math.floor(visiblePages/2);
     const startPage = Math.max(1, currentPage - halfVisible); 
     const endPage = Math.min(pageNumbers.length, startPage + visiblePages - 1);
@@ -24,7 +24,7 @@ const Paginate = ({ countriesPerPage, totalCountries, currentPage, paginate }: C
 
     if(currentPage > 1){
         pageItems.push(
-            <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+            <li key="previous" className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
                 <button className="page-link" onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
                     Previous
                 </button>
