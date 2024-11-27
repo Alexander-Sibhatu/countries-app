@@ -19,7 +19,7 @@ const Favourites = () => {
         <NavBar />
         <h2 className='fav-heading'>Your Favourite Countries</h2>
           {favouriteCountries.length === 0 ?(
-            <p>No favourite countries added yet.</p>
+            <p className='no-fav'>No favourite countries added yet.</p>
           ) : (
             <div className='fav-countries'>
               {favouriteCountries?.map((country: CountryT) => (

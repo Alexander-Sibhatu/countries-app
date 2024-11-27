@@ -4,7 +4,6 @@ import Countries from "../components/Countries";
 import useFetch from '../components/useFetch';
 import { ThemeProvider } from "../context/ThemeContext";
 import NavBar from "../features/NavBar";
-import { useTheme } from '../context/ThemeContext';
 
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
 
   const {countries, loading, error } = useFetch(url);
 
-  const theme = useTheme()
 
  
   return (

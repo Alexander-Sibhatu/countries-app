@@ -46,43 +46,47 @@ const Countries = (props: CountriesProps) => {
     const { theme } = useTheme();
 
   return (
-    <div className={theme === 'light'? 'dark-countries' : 'light-countries'}>
-      <h3>Countries App</h3>
-      <div className='bars'>
-        <input 
-          type='text' 
-          placeholder='Search for a country'
-          value={searchInput} 
-          onChange={ handleSearchInput }>
-        </input>
-        <select name="sortBy" id="sort_By" onChange={handleDropDown} value={sortBy}>
-            <option value='A'> Sort by </option>
-            <option value='B'> Sort A-Z </option>
-            <option value='C'> Sort Z-A </option>
-            <option value='D'> Sort by Ascending Population </option>
-            <option value='E'> Sort by Descending Population </option>
-        </select>
+    <div>
+      <div className={theme === 'light'? 'dark-countries' : 'light-countries'}>
+        <h3>Countries App</h3>
+        <div className='bars'>
+          <input 
+            type='text' 
+            placeholder='Search for a country'
+            value={searchInput} 
+            onChange={ handleSearchInput }>
+          </input>
+          <select name="sortBy" id="sort_By" onChange={handleDropDown} value={sortBy}>
+              <option value='A'> Sort by </option>
+              <option value='B'> Sort A-Z </option>
+              <option value='C'> Sort Z-A </option>
+              <option value='D'> Sort by Ascending Population </option>
+              <option value='E'> Sort by Descending Population </option>
+          </select>
+        </div>
+        <div>
+          <Row className="Row" gutter={[10, 10]} justify='center'>
+            {!searchInput
+              ? 
+              sortedAndPaginatedCountries.map((country) => (
+                <Country country={country} key={country.name.common}/>
+                ))
+                :
+                  filteredAndSortedCountries.map((country) => (
+                    <Country key={country.name.common} country={country} />
+                ))
+            }
+          </Row>
+        </div>
       </div>
-      <div className='countries'>
-        <Row gutter={[15, 15]} className='countries_row'>
-          {!searchInput
-            ? 
-            sortedAndPaginatedCountries.map((country) => (
-              <Country country={country} key={country.name.common}/>
-              ))
-              :
-                filteredAndSortedCountries.map((country) => (
-                  <Country key={country.name.common} country={country} />
-              ))
-          }
-        </Row>
+      <div className={theme === 'light'? 'dark-pagination' : 'light-pagination'}>
+        <Paginate
+          countriesPerPage={countriesPerPage} 
+          totalCountries={countries.length}
+          currentPage={currentPage} 
+          paginate={paginate}
+        />
       </div>
-      <Paginate
-        countriesPerPage={countriesPerPage} 
-        totalCountries={countries.length}
-        currentPage={currentPage} 
-        paginate={paginate}
-      />
     </div>
     
   )

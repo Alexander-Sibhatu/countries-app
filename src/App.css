@@ -4,14 +4,15 @@
   padding: 0;
 }
 
-.App {
+.App { 
+  flex-grow: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
   padding: 0;
   background-color:#d8dbe2;
-  height: 100%;
+  margin-top: 2rem;
 }
 
 .fav {
@@ -20,20 +21,32 @@
   height: 100vh;
 }
 .fav-heading {
-  margin-top: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.no-fav {
+  margin-left: 2rem;
+}
+.fav-countries {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100vh;
 }
 .home {
-  display: grid;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 
 .countries_row {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
-  margin: 0 -15px;
+  justify-content: center;
+  margin: 0 -10px;
   flex-grow: 1;
 }
 
@@ -52,6 +65,7 @@
 
 .bars {
   display: flex;
+  margin-bottom: 1rem;
 }
 input {
   border-style: none;
@@ -107,9 +121,9 @@ input {
 h3 {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
   align-items: center;
   font-weight: 600;
-  margin-top: 3rem 
 }
 
 .country__name {
@@ -125,6 +139,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .country > img {
   margin: 5px 0 0 30px;
@@ -139,14 +154,6 @@ h3 {
   height: auto;
   object-fit: cover;
   margin-bottom: 10px;
-}
-
-.country {
-  width: 7%;
-  height: 16%;
-  transition: transform 0.3s ease-in-out;
-  margin-bottom: 2rem;
-  
 }
 
 .country:hover {
@@ -172,6 +179,7 @@ theme toggling */
   color: #fff;
   box-shadow: 0 12px 8px rgba(0, 0, 0, 0.1);
   height: 6vh;
+  margin-bottom: 4rem;
 }
 
 .light-navbar ul {
@@ -188,8 +196,8 @@ theme toggling */
   justify-content: center;
   align-items: center;
   background-color: #e2e2e2;
-  width: 100%;  /* Let the column take up 100% of its parent */
-  height: auto;  /* Let the height adjust dynamically */
+  max-width: 100%;  /* Let the column take up 100% of its parent */
+  max-height: 50%;  /* Let the height adjust dynamically */
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 7px;
@@ -199,6 +207,7 @@ theme toggling */
 
 /* Example styles for the footer */
 .light-footer {
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,15 +217,26 @@ theme toggling */
   font-weight: 400;
   font-size: 1rem;
 }
-
-
+.light-pagination {
+  background-color:#d8dbe2;
+}
+.full-countries {
+  gap: 2rem;
+}
 .light-countries {
-  height: 100%;
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  margin-top: 1rem;
+  width: 100%;
+  height: 80vh;
   background-color:#d8dbe2; 
 }
 
-
+.Row {
+  display:flex;
+  align-items: center;
+}
 /* Dark Theme */
 .dark-navbar {
   position: fixed;
@@ -249,15 +269,21 @@ theme toggling */
   align-items: center;
   background-color: #3d405b;
   color: #fff;
-  padding: 10px;
+  /* padding: 10px; */
   font-weight: 400;
   font-size: 1rem;
 }
-
+.dark-pagination {
+  background-color: #293241;
+}
 
 .dark-countries {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  margin-top: 1rem;
   width: 100vw;
+  height: 80vh;
   color: #d8dbe2;
   background-color: #293241;
 }
